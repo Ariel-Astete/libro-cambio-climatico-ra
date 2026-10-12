@@ -1,0 +1,15 @@
+CARPETA DE RECURSOS
+
+Aquí puede guardar los recursos opcionales de la guía:
+
+- hiro.png          -> imagen del marcador Hiro para imprimir.
+- pagina1.patt      -> patrón personalizado generado con AR.js.
+- modelo.glb        -> modelo 3D externo.
+- narracion.mp3     -> audio o narración.
+- explicacion.mp4   -> video explicativo.
+
+El ejemplo principal usa preset="hiro", por lo que index.html no necesita
+un archivo .patt para utilizar el marcador Hiro.
+
+Marcador Hiro de referencia:
+https://raw.githubusercontent.com/AR-js-org/AR.js/master/data/images/hiro.png

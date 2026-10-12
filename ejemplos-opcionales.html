@@ -1,0 +1,27 @@
+<!--
+EJEMPLOS OPCIONALES DE LA GUÍA
+No es necesario abrir este archivo directamente.
+Copie los fragmentos en index.html cuando quiera ampliar el proyecto.
+-->
+
+<!-- Marcador personalizado -->
+<a-marker id="marcador" type="pattern"
+  url="assets/pagina1.patt" emitevents="true">
+</a-marker>
+
+<!-- Modelo 3D externo -->
+<a-entity gltf-model="url(assets/modelo.glb)"
+  position="0 0.2 0"
+  scale="0.2 0.2 0.2">
+</a-entity>
+
+<!-- Audio -->
+<audio controls preload="none"
+  src="assets/narracion.mp3">
+</audio>
+
+<!-- Video -->
+<video controls playsinline preload="metadata"
+  src="assets/explicacion.mp4"
+  style="width:100%">
+</video>

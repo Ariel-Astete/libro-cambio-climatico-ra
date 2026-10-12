@@ -1,0 +1,243 @@
+:root {
+  color-scheme: light;
+  font-family: "Trebuchet MS", "Avenir Next", sans-serif;
+  font-synthesis: none;
+  --ink: #18352d;
+  --muted: #53685e;
+  --leaf: #cbe66c;
+  --paper: #f5f5eb;
+  --line: rgba(24, 53, 45, 0.16);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow: hidden;
+  color: var(--ink);
+  background: #173b36;
+}
+
+#panel {
+  position: fixed;
+  z-index: 10;
+  inset: 16px auto 16px 16px;
+  display: flex;
+  flex-direction: column;
+  width: min(390px, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  border-radius: 8px;
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(203, 230, 108, 0.24), transparent 44%),
+    linear-gradient(145deg, rgba(250, 250, 241, 0.98), rgba(235, 241, 222, 0.97));
+  box-shadow: 0 18px 54px rgba(7, 30, 28, 0.3);
+  scrollbar-color: #a8bc75 transparent;
+}
+
+.marca {
+  margin: 0 0 14px;
+  color: #476258;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.marca span {
+  padding: 0 4px;
+  color: #c76c4b;
+}
+
+h1,
+h2,
+p {
+  overflow-wrap: anywhere;
+}
+
+h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2.05rem;
+  font-weight: 600;
+  line-height: 1.02;
+}
+
+.subtitulo {
+  max-width: 29ch;
+  margin: 8px 0 22px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+label {
+  margin-bottom: 7px;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+select,
+button {
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  color: var(--ink);
+  font: inherit;
+}
+
+select {
+  width: 100%;
+  padding: 0 36px 0 12px;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+select:focus-visible,
+button:focus-visible {
+  outline: 3px solid #c76c4b;
+  outline-offset: 2px;
+}
+
+.leccion {
+  margin-top: 22px;
+  animation: aparecer 280ms ease-out both;
+}
+
+.leccion h2 {
+  margin: 0 0 9px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.32rem;
+  font-weight: 600;
+  line-height: 1.16;
+}
+
+#explicacion {
+  margin: 0;
+  color: #40594f;
+  font-size: 0.91rem;
+  line-height: 1.52;
+}
+
+.pregunta {
+  margin-top: 16px;
+  padding: 12px 14px;
+  border-left: 3px solid #c76c4b;
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.pregunta span {
+  color: #945039;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+#pregunta {
+  margin: 5px 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.98rem;
+  line-height: 1.4;
+}
+
+.controles {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+button {
+  padding: 0 14px;
+  border-color: #24483d;
+  background: #24483d;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+button:hover {
+  background: #356251;
+}
+
+#estado {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+
+small {
+  display: block;
+  margin-top: 16px;
+  color: #65776d;
+  font-size: 0.7rem;
+  line-height: 1.4;
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  #panel {
+    inset: 10px 10px auto;
+    width: auto;
+    max-height: min(62dvh, 510px);
+    padding: 16px;
+  }
+
+  .marca {
+    margin-bottom: 8px;
+  }
+
+  h1 {
+    font-size: 1.72rem;
+  }
+
+  .subtitulo {
+    margin: 6px 0 14px;
+    font-size: 0.84rem;
+  }
+
+  .leccion {
+    margin-top: 15px;
+  }
+
+  .leccion h2 {
+    font-size: 1.15rem;
+  }
+
+  #explicacion {
+    font-size: 0.84rem;
+  }
+
+  .pregunta {
+    margin-top: 11px;
+    padding: 9px 11px;
+  }
+
+  .controles {
+    margin-top: 12px;
+  }
+
+  small {
+    margin-top: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

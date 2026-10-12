@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Cambio Climático: Explorando nuestro planeta con Realidad Aumentada</title>
+
+  <link rel="stylesheet" href="css/estilos.css">
+
+  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/3.4.7/aframe/build/aframe-ar.js"></script>
+
+  <script src="js/clima.js"></script>
+  <script src="js/libro.js" defer></script>
+</head>
+
+<body>
+  <section id="panel" aria-label="Explorador del cambio climático">
+    <p class="marca">Aula abierta <span>·</span> Ciencia y planeta</p>
+    <h1>Cambio Climático</h1>
+    <p class="subtitulo">Explorando nuestro planeta con Realidad Aumentada</p>
+
+    <label for="pagina">Explora una escena</label>
+    <select id="pagina">
+      <option value="1">01 · ¿Qué es el cambio climático?</option>
+      <option value="2">02 · Causas del cambio climático</option>
+      <option value="3">03 · Consecuencias ambientales</option>
+      <option value="4">04 · Impacto en el Perú</option>
+      <option value="5">05 · Soluciones al cambio climático</option>
+    </select>
+
+    <article class="leccion" aria-live="polite">
+      <h2 id="titulo"></h2>
+      <p id="explicacion"></p>
+      <div class="pregunta">
+        <span>Para pensar</span>
+        <p id="pregunta"></p>
+      </div>
+    </article>
+
+    <div class="controles">
+      <button id="pausa" type="button">Pausar animación</button>
+      <p id="estado" role="status" aria-live="polite">Permite la cámara y enfoca el marcador Hiro.</p>
+    </div>
+
+    <small>Modelos didácticos esquemáticos; no representan mediciones científicas.</small>
+  </section>
+
+  <a-scene
+    embedded
+    vr-mode-ui="enabled: false"
+    renderer="alpha: true; antialias: true"
+    arjs="sourceType: webcam; debugUIEnabled: false;">
+
+    <a-marker
+      id="marcador"
+      preset="hiro"
+      emitevents="true">
+
+      <a-entity
+        id="escenas"
+        clima-escenas
+        position="0 0.12 0"
+        scale="0.34 0.34 0.34">
+      </a-entity>
+
+    </a-marker>
+
+    <a-entity camera></a-entity>
+  </a-scene>
+</body>
+</html>
